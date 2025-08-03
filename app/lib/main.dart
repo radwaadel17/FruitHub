@@ -1,4 +1,5 @@
 import 'package:app/Features/splash/presentation/views/splash_view.dart';
+import 'package:app/core/helper_function/on_generate_route.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,9 @@ class FruitApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SplashView(),
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: SplashView.routeName,
     );
   }
 }
