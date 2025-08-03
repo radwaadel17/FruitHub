@@ -32,6 +32,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.1.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_launcher_icons: ^0.14.4
@@ -90,3 +92,5 @@ flutter_assets:
   output_path: lib/core/utils
   filename: appIamges.dart
   field_prefix: null
+flutter_intl:
+  enabled: true
