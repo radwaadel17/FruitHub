@@ -1,4 +1,4 @@
-import 'package:app/Features/onboarding/presentation/views/on_boarding_widget.dart';
+import 'package:app/Features/onboarding/presentation/views/widgets/on_boarding_widget.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingView extends StatelessWidget {

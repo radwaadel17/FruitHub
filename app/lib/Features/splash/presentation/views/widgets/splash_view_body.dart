@@ -11,17 +11,18 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody> {
-  void dalayFunction() {
-    Future.delayed(const Duration(seconds: 2), () {
+
+ delayFunction() async {
+    await Future.delayed(const Duration(seconds: 3) , (){
       Navigator.pushNamed(context, OnBoardingView.routeName);
     });
-  }
 
+  }
   @override
   void initState() {
     super.initState();
-    dalayFunction();
-  }
+    delayFunction()
+;  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,10 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            SvgPicture.asset(Assets.imagesPlant),
+            SvgPicture.asset(Assets.imagesPlant,
+            ),
           ],
         ),
         SvgPicture.asset(Assets.imagesSplash),

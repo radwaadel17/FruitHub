@@ -15,7 +15,8 @@ class PageViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Column(
+      children: [
       SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height * 0.5,
@@ -32,6 +33,14 @@ class PageViewItem extends StatelessWidget {
                 image,
                 width: MediaQuery.of(context).size.width * 0.8,
               ),
+            ),
+           const Positioned(
+              right: 0,
+              top:0 ,
+             child: Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Text('تخط' , style: TextStyle(fontSize: 21),),
+             ),
             )
           ],
         ),
@@ -39,13 +48,14 @@ class PageViewItem extends StatelessWidget {
       const SizedBox(
         height: 64,
       ),
-      Row(
-        children: [title],
-      ),
+      title,
       const SizedBox(
         height: 16,
       ),
-      Text(subTitle),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 29),
+        child: Text(subTitle , textAlign: TextAlign.center,),
+      ),
     ]);
   }
 }
