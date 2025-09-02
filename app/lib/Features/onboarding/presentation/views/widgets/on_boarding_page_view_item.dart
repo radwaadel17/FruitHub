@@ -7,11 +7,14 @@ class PageViewItem extends StatelessWidget {
       required this.image,
       required this.bg,
       required this.subTitle,
-      required this.title});
+      required this.title,
+      required this.isVisible
+      });
   final String image;
   final String bg;
   final String subTitle;
   final Widget title;
+  final bool isVisible ;
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +37,14 @@ class PageViewItem extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.8,
               ),
             ),
-           const Positioned(
+            Positioned(
               right: 0,
               top:0 ,
              child: Padding(
                padding: const EdgeInsets.all(8.0),
-               child: Text('تخط' , style: TextStyle(fontSize: 21),),
+               child: Visibility(
+                visible: isVisible,
+                child: const Text('تخط' , style: TextStyle(fontSize: 21),)),
              ),
             )
           ],
