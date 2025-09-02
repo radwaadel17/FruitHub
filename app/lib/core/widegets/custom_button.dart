@@ -1,3 +1,4 @@
+import 'package:app/core/utils/app_text_styles.dart';
 import 'package:app/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +19,9 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
           ),
-          onPressed: (){}, child: const Text
+          onPressed: (){}, child:  Text
         
-        ('ابدا الان ', style: TextStyle(fontSize: 21 , color: Colors.white),)),
+        ('ابدا الان ', style: AppTextStyles.bold16.copyWith(color: Colors.white),)),
       ),
     );
   }

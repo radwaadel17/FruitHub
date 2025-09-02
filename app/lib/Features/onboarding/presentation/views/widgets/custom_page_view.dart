@@ -1,5 +1,7 @@
 import 'package:app/Features/onboarding/presentation/views/widgets/on_boarding_page_view_item.dart';
 import 'package:app/core/utils/appIamges.dart';
+import 'package:app/core/utils/app_text_styles.dart';
+import 'package:app/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomPageView extends StatelessWidget {
@@ -20,13 +22,16 @@ class CustomPageView extends StatelessWidget {
             bg: Assets.imagesBg1,
             subTitle:
                 'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
-            title:const Row(
+            title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
+                  style: AppTextStyles.bold23,
                   'مرحبا بك في',
                 ),
-                Text(' FruitHUB'),
+                Text(' HUB' , style: AppTextStyles.bold23.copyWith(color: Colors.yellow)),
+                 Text('Fruit' , style: AppTextStyles.bold23.copyWith(color: ColorsApp.primaryColor)),
+
               ],
             )),
         PageViewItem(
@@ -35,10 +40,10 @@ class CustomPageView extends StatelessWidget {
             bg: Assets.imagesBg2,
             subTitle:
                 'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
-            title:const Row(
+            title: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('ابحث وتسوق'),
+                Text('ابحث وتسوق' , style: AppTextStyles.bold23,),
               ],
             )),
       ],
