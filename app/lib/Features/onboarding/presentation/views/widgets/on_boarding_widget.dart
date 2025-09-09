@@ -1,3 +1,4 @@
+import 'package:app/Features/auth/presentation/views/logn_in_view.dart';
 import 'package:app/Features/onboarding/presentation/views/widgets/custom_page_view.dart';
 import 'package:app/core/utils/colors.dart';
 import 'package:app/core/widegets/custom_button.dart';
@@ -51,7 +52,12 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
           maintainAnimation: true,
           maintainState: true,
           visible: currentPage == 1,
-          child: const CustomButton()),
+          child: CustomButton(
+            onPressed: (){
+               Navigator.pushReplacementNamed(context, LogInView.routeName); 
+            },
+           
+          )),
       ],
     );
   }

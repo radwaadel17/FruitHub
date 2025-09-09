@@ -3,8 +3,8 @@ import 'package:app/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
-
+  const CustomButton({super.key,  required this.onPressed});
+  final void Function() onPressed ;
   @override
   Widget build(BuildContext context) {
     return  Padding(
@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
           ),
-          onPressed: (){}, child:  Text
+          onPressed: onPressed, child:  Text
         
         ('ابدا الان ', style: AppTextStyles.bold16.copyWith(color: Colors.white),)),
       ),
