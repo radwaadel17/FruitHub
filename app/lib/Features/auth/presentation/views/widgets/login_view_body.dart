@@ -1,4 +1,6 @@
+
 import 'package:app/core/widegets/custom_app_bar.dart';
+import 'package:app/core/widegets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -8,8 +10,19 @@ class LoginViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        CustomAppBar(txt: 'تسجيل دخول',),
+        CustomAppBar(
+          txt: 'تسجيل دخول', 
+        ),
+        CustomTextField(
+          hintText: 'البريد الإلكتروني',
+          textInputType: TextInputType.emailAddress,
+        ),
+         CustomTextField(
+          hintText: 'كلمة المرور',
+          textInputType: TextInputType.emailAddress,
+        ),
       ],
     );
   }
 }
+

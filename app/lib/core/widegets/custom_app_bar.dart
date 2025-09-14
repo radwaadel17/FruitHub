@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.txt,});
+  const CustomAppBar({super.key, required this.txt});
   final String txt ;
 
   @override
