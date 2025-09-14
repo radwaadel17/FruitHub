@@ -1,3 +1,4 @@
+import 'package:app/Features/auth/presentation/views/widgets/login_view_body.dart';
 import 'package:flutter/material.dart';
 
 class LogInView extends StatefulWidget {
@@ -16,6 +17,8 @@ class _LogInViewState extends State<LogInView> {
   }
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: LoginViewBody(),
+    );
   }
 }
