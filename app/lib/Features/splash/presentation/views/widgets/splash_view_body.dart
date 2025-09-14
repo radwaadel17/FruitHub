@@ -1,5 +1,7 @@
+import 'package:app/Features/auth/presentation/views/logn_in_view.dart';
 import 'package:app/Features/onboarding/presentation/views/on%20boarding%20screen.dart';
 import 'package:app/core/utils/appIamges.dart';
+import 'package:app/core/utils/shared_prefrences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,18 +13,24 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody> {
-
- delayFunction() async {
-    await Future.delayed(const Duration(seconds: 3) , (){
+  delayFunction() async {
+    bool check = SharedPrefs.getBool("IsSeen");
+    if (check) {
+      await Future.delayed(const Duration(seconds: 3), () {
+        Navigator.pushNamed(context, LogInView.routeName);
+      });
+      return;
+    }
+    await Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushNamed(context, OnBoardingView.routeName);
     });
-
   }
+
   @override
   void initState() {
     super.initState();
-    delayFunction()
-;  }
+    delayFunction();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +41,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            SvgPicture.asset(Assets.imagesPlant,
+            SvgPicture.asset(
+              Assets.imagesPlant,
             ),
           ],
         ),
