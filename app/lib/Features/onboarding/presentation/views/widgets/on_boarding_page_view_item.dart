@@ -1,3 +1,4 @@
+import 'package:app/Features/auth/presentation/views/logn_in_view.dart';
 import 'package:app/core/utils/app_text_styles.dart';
 import 'package:app/core/utils/shared_prefrences.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +50,7 @@ class PageViewItem extends StatelessWidget {
                 child:  GestureDetector(
                   onTap: (){
                     SharedPrefs.setBool("IsSeen", true);
+                    Navigator.pushReplacementNamed(context, LogInView.routeName);
                   },
                   child: Text('تخط' , style: AppTextStyles.regular13.copyWith(color: const Color(0xff949D9E)) ))),
              ),

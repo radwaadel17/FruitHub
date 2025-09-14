@@ -14,4 +14,8 @@ class SharedPrefs {
   static bool getBool(String key) {
     return instance.getBool(key) ?? false;
   }
+
+  static Future<bool> clear() async {
+    return await instance.clear();
+  }
 }
