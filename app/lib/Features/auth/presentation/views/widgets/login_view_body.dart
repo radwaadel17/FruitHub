@@ -13,36 +13,38 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CustomAppBar(
-          txt: 'تسجيل دخول',
-        ),
-        const CustomTextField(
-          hintText: 'البريد الإلكتروني',
-          textInputType: TextInputType.emailAddress,
-        ),
-        const CustomTextField(
-            hintText: 'كلمة المرور',
-            textInputType: TextInputType.visiblePassword,
-            suffixIcon: Icon(
-              Icons.remove_red_eye,
-              color: Color(0xffC9CECF),
-            )),
-        const ForgetPasswordText(),
-        CustomButton(
-          onPressed: () {},
-          txt: 'تسجيل دخول',
-        ),
-        const DontHaveAccountText(),
-        const OrTxt(),
-        const LogInMethodContainer(
-            txt: 'تسجيل بواسطة جوجل', urlImage: Assets.imagesGoogle),
-        const LogInMethodContainer(
-            txt: 'تسجيل بواسطة أبل', urlImage: Assets.imagesApple),
-        const LogInMethodContainer(
-            txt: 'تسجيل بواسطة فيسبوك', urlImage: Assets.imagesFacebook),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const CustomAppBar(
+            txt: 'تسجيل دخول',
+          ),
+          const CustomTextField(
+            hintText: 'البريد الإلكتروني',
+            textInputType: TextInputType.emailAddress,
+          ),
+          const CustomTextField(
+              hintText: 'كلمة المرور',
+              textInputType: TextInputType.visiblePassword,
+              suffixIcon: Icon(
+                Icons.remove_red_eye,
+                color: Color(0xffC9CECF),
+              )),
+          const ForgetPasswordText(),
+          CustomButton(
+            onPressed: () {},
+            txt: 'تسجيل دخول',
+          ),
+          const DontHaveAccountText(),
+          const OrTxt(),
+          const LogInMethodContainer(
+              txt: 'تسجيل بواسطة جوجل', urlImage: Assets.imagesGoogle),
+          const LogInMethodContainer(
+              txt: 'تسجيل بواسطة أبل', urlImage: Assets.imagesApple),
+          const LogInMethodContainer(
+              txt: 'تسجيل بواسطة فيسبوك', urlImage: Assets.imagesFacebook),
+        ],
+      ),
     );
   }
 }

@@ -15,7 +15,7 @@ class CustomAppBar extends StatelessWidget {
         child: Row(
           children: [
             SvgPicture.asset(Assets.imagesArrowLeft),
-            const Spacer(flex: 1,),
+            const Spacer(flex: 2,),
             Text(txt, style: AppTextStyles.bold19,) , 
             const Spacer(flex: 2,),
           ] ,
