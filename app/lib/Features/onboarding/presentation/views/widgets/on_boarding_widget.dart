@@ -54,6 +54,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
           maintainState: true,
           visible: currentPage == 1,
           child: CustomButton(
+            txt: "ابدا الان ",
             onPressed: (){
                SharedPrefs.setBool("IsSeen", true);
                Navigator.pushReplacementNamed(context, LogInView.routeName); 

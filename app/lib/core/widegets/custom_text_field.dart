@@ -21,7 +21,7 @@ class CustomTextField extends StatelessWidget {
           hintStyle: AppTextStyles.regular13.copyWith(
               fontWeight: FontWeight.bold, color: ColorsApp.textColor),
           filled: true,
-          fillColor: ColorsApp.textFieldColor,
+          fillColor:const Color(0xffF9FAFA),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
               borderSide: BorderSide(

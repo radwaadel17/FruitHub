@@ -18,6 +18,7 @@ class FruitApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white, 
         fontFamily: 'Cairo',
       ),
        localizationsDelegates: const [
