@@ -18,48 +18,50 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   bool? isChecked;
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      const CustomAppBar(txt: 'حساب جديد'),
-      const CustomTextField(
-        textInputType: TextInputType.text,
-        hintText: 'الاسم كامل',
-      ),
-      const CustomTextField(
-        textInputType: TextInputType.emailAddress,
-        hintText: 'البريد الإلكتروني',
-      ),
-      const CustomTextField(
-        textInputType: TextInputType.visiblePassword,
-        hintText: 'كلمة المرور',
-        suffixIcon: Icon(
-          Icons.remove_red_eye,
-          color: ColorsApp.textColor,
+    return SingleChildScrollView(
+      child: Column(children: [
+        const CustomAppBar(txt: 'حساب جديد'),
+        const CustomTextField(
+          textInputType: TextInputType.text,
+          hintText: 'الاسم كامل',
         ),
-      ),
-      Row(
-        children: [
-          CustomCheckBox(
-            returnValue: (bool isChecked) {
-              this.isChecked = isChecked;
-            },
+        const CustomTextField(
+          textInputType: TextInputType.emailAddress,
+          hintText: 'البريد الإلكتروني',
+        ),
+        const CustomTextField(
+          textInputType: TextInputType.visiblePassword,
+          hintText: 'كلمة المرور',
+          suffixIcon: Icon(
+            Icons.remove_red_eye,
+            color: ColorsApp.textColor,
           ),
-          const SizedBox(
-            width: 8,
-          ),
-          const TextSpanCheckBoc(),
-        ],
-      ),
-      const SizedBox(
-        height: 16,
-      ),
-      CustomButton(
-        onPressed: () {},
-        txt: 'إنشاء حساب جديد',
-      ),
-      const SizedBox(
-        height: 16,
-      ),
-      const TextSpanLogIn(),
-    ]);
+        ),
+        Row(
+          children: [
+            CustomCheckBox(
+              returnValue: (bool isChecked) {
+                this.isChecked = isChecked;
+              },
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            const TextSpanCheckBoc(),
+          ],
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        CustomButton(
+          onPressed: () {},
+          txt: 'إنشاء حساب جديد',
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        const TextSpanLogIn(),
+      ]),
+    );
   }
 }
