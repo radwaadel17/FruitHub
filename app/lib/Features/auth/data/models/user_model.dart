@@ -7,7 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
     required super.email,
     required super.name,
   });
-  factory UserModel.fromJson(UserCredential user){
+  factory UserModel.fromFirebase(UserCredential user){
     return UserModel(
       uid: user.user?.uid ?? '',
       email: user.user?.email ?? '',

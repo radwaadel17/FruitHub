@@ -6,6 +6,7 @@ abstract class RemoteDataSource {
     required String password,
   });
 }
+
 class RemoteDataSourceImp implements RemoteDataSource {
   final FirebaseAuth firebaseAuth;
 
@@ -20,4 +21,3 @@ class RemoteDataSourceImp implements RemoteDataSource {
         email: email, password: password);
   }
 }
-

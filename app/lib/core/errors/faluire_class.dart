@@ -8,7 +8,7 @@ abstract class Faluire{
  class ServerFaluire extends Faluire{
   ServerFaluire(super.message);
 
-  factory ServerFaluire.fromFirebaseException(FirebaseAuthException e){
+  factory ServerFaluire.fromFirebaseException(FirebaseException e){
 
     switch (e.code){
       case 'weak-password':
