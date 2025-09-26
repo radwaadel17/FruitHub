@@ -1,5 +1,5 @@
 import 'package:app/Features/splash/presentation/views/splash_view.dart';
-import 'package:app/core/helper_function/on_generate_route.dart';
+import 'package:app/core/Services/on_generate_route.dart';
 import 'package:app/core/utils/shared_prefrences.dart';
 import 'package:app/firebase_options.dart';
 import 'package:app/generated/l10n.dart';
@@ -24,7 +24,7 @@ class FruitApp extends StatelessWidget {
     return  MaterialApp(
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white, 
-        fontFamily: 'Cairo',
+        fontFamily: 'Cairo',  
       ),
        localizationsDelegates: const [
                 S.delegate,

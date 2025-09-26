@@ -6,9 +6,9 @@ import 'package:app/core/errors/faluire_class.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-class ReposImp extends AuthRepo {
+class AuthRepoImp extends AuthRepo {
   RemoteDataSourceImp remoteDataSourceImp;
-  ReposImp({required this.remoteDataSourceImp});
+  AuthRepoImp(this.remoteDataSourceImp);
   @override
   Future<Either<Faluire, UserEntity>> signUp(
       {required String email,

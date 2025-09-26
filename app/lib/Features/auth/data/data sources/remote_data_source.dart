@@ -8,9 +8,10 @@ abstract class RemoteDataSource {
 }
 
 class RemoteDataSourceImp implements RemoteDataSource {
-  final FirebaseAuth firebaseAuth;
+  
 
-  RemoteDataSourceImp({required this.firebaseAuth});
+  RemoteDataSourceImp(this.firebaseAuth);
+  final FirebaseAuth firebaseAuth;
 
   @override
   Future<UserCredential> signUp({
