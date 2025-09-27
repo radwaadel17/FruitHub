@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
-      {super.key, this.hintText, this.textInputType, this.suffixIcon, this.onSaved});
+      {super.key, this.hintText, this.textInputType, this.suffixIcon, this.onSaved, this.isObscure});
   final String? hintText;
   final TextInputType? textInputType;
   final Widget? suffixIcon;
   final void Function(String?)? onSaved;
+  final bool? isObscure ;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: TextFormField(
+        obscureText: isObscure ?? false,
         onSaved: onSaved,
         validator: (value) {
           if (value == null || value.isEmpty) {

@@ -1,4 +1,5 @@
 import 'package:app/Features/splash/presentation/views/splash_view.dart';
+import 'package:app/core/Services/Service_locator.dart';
 import 'package:app/core/Services/on_generate_route.dart';
 import 'package:app/core/utils/shared_prefrences.dart';
 import 'package:app/firebase_options.dart';
@@ -13,6 +14,7 @@ void main() async{
   options: DefaultFirebaseOptions.currentPlatform,
 );
   await SharedPrefs.init();
+  setup();
   runApp(const FruitApp());
 }
 
