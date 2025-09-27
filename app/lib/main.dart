@@ -1,11 +1,13 @@
 import 'package:app/Features/splash/presentation/views/splash_view.dart';
 import 'package:app/core/Services/Service_locator.dart';
+import 'package:app/core/Services/bloc_observer.dart';
 import 'package:app/core/Services/on_generate_route.dart';
 import 'package:app/core/utils/shared_prefrences.dart';
 import 'package:app/firebase_options.dart';
 import 'package:app/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async{
@@ -15,6 +17,7 @@ void main() async{
 );
   await SharedPrefs.init();
   setup();
+  Bloc.observer = AppBlocObserver();
   runApp(const FruitApp());
 }
 
