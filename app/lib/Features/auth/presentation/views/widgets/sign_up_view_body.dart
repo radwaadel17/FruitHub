@@ -2,6 +2,7 @@ import 'package:app/Features/auth/presentation/manager/cubits/sign_up_cubit.dart
 import 'package:app/Features/auth/presentation/views/widgets/Custom_check_box.dart';
 import 'package:app/Features/auth/presentation/views/widgets/text_span_check_box.dart';
 import 'package:app/Features/auth/presentation/views/widgets/text_span_log_in.dart';
+import 'package:app/core/functions/error_bar_function.dart';
 import 'package:app/core/utils/colors.dart';
 import 'package:app/core/widegets/custom_app_bar.dart';
 import 'package:app/core/widegets/custom_button.dart';
@@ -81,6 +82,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
             onPressed: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
+                if (isChecked == null || isChecked == false) {
+                  buildErrorBar(context, 'يجب الموافقة على الشروط والأحكام');
+                  return;
+                }
                 BlocProvider.of<SignUpCubit>(context)
                     .signUp(name: name!, password: password!, email: email!);
               } else {

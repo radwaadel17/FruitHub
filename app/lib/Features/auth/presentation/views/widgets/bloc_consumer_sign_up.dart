@@ -1,6 +1,7 @@
 import 'package:app/Features/auth/presentation/manager/cubits/sign_up_cubit.dart';
 import 'package:app/Features/auth/presentation/manager/cubits/sign_up_states.dart';
 import 'package:app/Features/auth/presentation/views/widgets/sign_up_view_body.dart';
+import 'package:app/core/functions/error_bar_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -16,9 +17,7 @@ class BlocConsumerSignUp extends StatelessWidget {
             if(state is SucsessSignUpState){
               // Navigator.pushNamed(context, HomeView.routeName);
             } else if(state is FaluireSignUpState){
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(state.msg))
-              );
+              buildErrorBar(context, state.msg);
             }
           },
           builder: (context, state) {
@@ -29,4 +28,5 @@ class BlocConsumerSignUp extends StatelessWidget {
         ),
       );
   }
+
 }

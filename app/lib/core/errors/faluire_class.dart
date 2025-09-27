@@ -12,23 +12,23 @@ abstract class Faluire{
 
     switch (e.code){
       case 'weak-password':
-        return ServerFaluire('The password provided is too weak.');
+        return ServerFaluire('الرقم السري ضعيف جدا');
       case 'email-already-in-use':
-        return ServerFaluire('This email address is already in use.');
+        return ServerFaluire('هذا البريد الإلكتروني مستخدم مسبقاً');
       case 'invalid-email':
-        return ServerFaluire('Your email address appears to be malformed.');
+        return ServerFaluire('هذا البريد الإلكتروني غير صحيح');
       case 'wrong-password':
-        return ServerFaluire('Your password is wrong.');
+        return ServerFaluire('الرقم السري غير صحيح');
       case 'user-not-found':
-        return ServerFaluire("User with this email doesn't exist.");
+        return ServerFaluire("لا يوجد مستخدم بهذا البريد الإلكتروني");
       case 'user-disabled':
-        return ServerFaluire('User with this email has been disabled.');
+        return ServerFaluire('تم تعطيل هذا المستخدم. يرجى الاتصال بالدعم للمساعدة.');
       case 'too-many-requests':
-        return ServerFaluire('Too many requests. Try again later.');
+        return ServerFaluire('تم حظر الوصول مؤقتًا بسبب العديد من المحاولات غير الناجحة. يرجى المحاولة مرة أخرى لاحقًا.');
       case 'operation-not-allowed':
-        return ServerFaluire('Signing in with Email and Password is not enabled.');
+        return ServerFaluire('هذه العملية غير مسموح بها. يرجى الاتصال بالدعم للمساعدة.');
       default:
-        return ServerFaluire('An undefined Error happened , try again later.');
+        return ServerFaluire('حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.');
     }
   }
  }
