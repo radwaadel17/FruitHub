@@ -1,5 +1,5 @@
 import 'package:app/Features/auth/data/repos/repos_imp.dart';
-import 'package:app/Features/auth/presentation/manager/cubits/sign_up_cubit.dart';
+import 'package:app/Features/auth/presentation/manager/cubits/sign%20up/sign_up_cubit.dart';
 import 'package:app/Features/auth/presentation/views/widgets/bloc_consumer_sign_up.dart';
 import 'package:app/core/Services/Service_locator.dart';
 import 'package:flutter/material.dart';

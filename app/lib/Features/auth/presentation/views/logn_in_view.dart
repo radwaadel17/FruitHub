@@ -1,5 +1,9 @@
-import 'package:app/Features/auth/presentation/views/widgets/login_view_body.dart';
+import 'package:app/Features/auth/data/repos/repos_imp.dart';
+import 'package:app/Features/auth/presentation/manager/cubits/sign%20in/sign_in_cubit.dart';
+import 'package:app/Features/auth/presentation/views/widgets/bloc_consumer_sign_in.dart';
+import 'package:app/core/Services/Service_locator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LogInView extends StatefulWidget {
   const LogInView({super.key});
@@ -15,10 +19,14 @@ class _LogInViewState extends State<LogInView> {
     //SharedPrefs.clear();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: LoginViewBody(),
+    return BlocProvider(
+      create: (context) => SignInCubit(getIt<AuthRepoImp>()),
+      child: const Scaffold(
+        body: BlocConsumerSignIn(),
+      ),
     );
   }
 }

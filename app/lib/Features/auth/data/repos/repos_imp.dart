@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:app/Features/auth/data/data%20sources/remote_data_source.dart';
 import 'package:app/Features/auth/data/models/user_model.dart';
 import 'package:app/Features/auth/domain/entities/user_entity.dart';
@@ -22,6 +24,26 @@ class AuthRepoImp extends AuthRepo {
       if (e is FirebaseException) {
         return Left(ServerFaluire.fromFirebaseException(e));
       } else {
+        log(e.toString());
+        return Left(
+            ServerFaluire('An undefined Error happened , try again later.'));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Faluire, UserEntity>> signIn(
+      {required String email, required String password}) async {
+    try {
+      final res =
+          await remoteDataSourceImp.signIn(email: email, password: password);
+      return Right(UserModel.fromFirebase(res));
+    } catch (e) {
+      if (e is FirebaseException) {
+         log(e.toString());
+        return Left(ServerFaluire.fromFirebaseException(e));
+      } else {
+        log(e.toString());
         return Left(
             ServerFaluire('An undefined Error happened , try again later.'));
       }

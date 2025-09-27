@@ -1,4 +1,4 @@
-import 'package:app/Features/auth/presentation/manager/cubits/sign_up_cubit.dart';
+import 'package:app/Features/auth/presentation/manager/cubits/sign%20up/sign_up_cubit.dart';
 import 'package:app/Features/auth/presentation/views/widgets/Custom_check_box.dart';
 import 'package:app/Features/auth/presentation/views/widgets/text_span_check_box.dart';
 import 'package:app/Features/auth/presentation/views/widgets/text_span_log_in.dart';

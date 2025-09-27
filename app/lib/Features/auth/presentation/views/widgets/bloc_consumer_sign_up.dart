@@ -1,5 +1,5 @@
-import 'package:app/Features/auth/presentation/manager/cubits/sign_up_cubit.dart';
-import 'package:app/Features/auth/presentation/manager/cubits/sign_up_states.dart';
+import 'package:app/Features/auth/presentation/manager/cubits/sign%20up/sign_up_cubit.dart';
+import 'package:app/Features/auth/presentation/manager/cubits/sign%20up/sign_up_states.dart';
 import 'package:app/Features/auth/presentation/views/widgets/sign_up_view_body.dart';
 import 'package:app/core/functions/error_bar_function.dart';
 import 'package:flutter/material.dart';
