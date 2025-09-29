@@ -26,15 +26,6 @@ This repository contains the mobile client (Flutter) — suitable as a portfolio
 
 ---
 
-## Screenshots
-> Add screenshots or GIFs in `/assets/screenshots/` and update paths below.
-
-| Login | Home | Cart |
-|---|---:|:---:|
-| ![login](assets/screenshots/login.png) | ![home](assets/screenshots/home.png) | ![cart](assets/screenshots/cart.png) |
-
----
-
 ## Tech Stack
 - **Framework:** Flutter (Dart)  
 - **State Management:** Cubit / BLoC  
