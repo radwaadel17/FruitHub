@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FruitHub</string>
+    <string name="welcome_message">Welcome to our E-commerce App!</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="logout">Logout</string>
+    <string name="cart">Cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="search_hint">Search products...</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="remove_from_cart">Remove from Cart</string>
+    <string name="order_success">Your order has been placed successfully!</string>
+    <string name="error_message">Something went wrong. Please try again.</string>
+    <string name="facebook_app_id">1339175567592458</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">6a9b99ae8297a7399f151392da45997e</string>
+</resources>
