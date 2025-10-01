@@ -49,4 +49,20 @@ class AuthRepoImp extends AuthRepo {
       }
     }
   }
+  @override
+  Future<Either<Faluire, UserEntity>> signInWithGoogle() async {
+    try {
+      final res = await remoteDataSourceImp.signInWithGoogle();
+      return Right(UserModel.fromFirebase(res));
+    } catch (e) {
+      if (e is FirebaseException) {
+        log(e.toString());
+        return Left(ServerFaluire.fromFirebaseException(e));
+      } else {
+        log(e.toString());
+        return Left(
+            ServerFaluire('An undefined Error happened , try again later.'));
+      }
+    }
+}
 }

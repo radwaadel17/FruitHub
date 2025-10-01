@@ -75,7 +75,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             ),
             const DontHaveAccountText(),
             const OrTxt(),
-            const LogInMethodContainer(
+             LogInMethodContainer(
+              onPressed: (){
+                BlocProvider.of<SignInCubit>(context).signInWithGoogle();
+              },
                 txt: 'تسجيل بواسطة جوجل', urlImage: Assets.imagesGoogle),
             const LogInMethodContainer(
                 txt: 'تسجيل بواسطة أبل', urlImage: Assets.imagesApple),

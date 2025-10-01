@@ -4,9 +4,10 @@ import 'package:flutter_svg/svg.dart';
 
 class LogInMethodContainer extends StatelessWidget {
   const LogInMethodContainer(
-      {super.key, required this.txt, required this.urlImage});
+      {super.key, required this.txt, required this.urlImage, this.onPressed});
   final String txt;
   final String urlImage;
+  final void Function()? onPressed ; 
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,7 +23,7 @@ class LogInMethodContainer extends StatelessWidget {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed:onPressed ,
           child: ListTile(
             visualDensity: const VisualDensity(
               vertical: VisualDensity.minimumDensity,
