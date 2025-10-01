@@ -40,7 +40,7 @@ class AuthRepoImp extends AuthRepo {
       return Right(UserModel.fromFirebase(res));
     } catch (e) {
       if (e is FirebaseException) {
-         log(e.toString());
+        log(e.toString());
         return Left(ServerFaluire.fromFirebaseException(e));
       } else {
         log(e.toString());
@@ -49,6 +49,7 @@ class AuthRepoImp extends AuthRepo {
       }
     }
   }
+
   @override
   Future<Either<Faluire, UserEntity>> signInWithGoogle() async {
     try {
@@ -64,5 +65,22 @@ class AuthRepoImp extends AuthRepo {
             ServerFaluire('An undefined Error happened , try again later.'));
       }
     }
-}
+  }
+
+  @override
+  Future<Either<Faluire, UserEntity>> signInWithFacebook() async {
+    try {
+      final res = await remoteDataSourceImp.signInWithFacebook();
+      return Right(UserModel.fromFirebase(res));
+    } catch (e) {
+      if (e is FirebaseException) {
+        log(e.toString());
+        return Left(ServerFaluire.fromFirebaseException(e));
+      } else {
+        log(e.toString());
+        return Left(
+            ServerFaluire('An undefined Error happened , try again later.'));
+      }
+    }
+  }
 }
