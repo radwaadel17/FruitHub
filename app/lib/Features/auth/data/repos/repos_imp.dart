@@ -37,7 +37,7 @@ class AuthRepoImp extends AuthRepo {
         log(e.toString());
 
         return Left(
-            ServerFaluire('An undefined Error happened , try again later.'));
+            ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
       }
     }
   }
@@ -56,24 +56,34 @@ class AuthRepoImp extends AuthRepo {
       } else {
         log(e.toString());
         return Left(
-            ServerFaluire('An undefined Error happened , try again later.'));
+            ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
       }
     }
   }
 
   @override
   Future<Either<Faluire, UserEntity>> signInWithGoogle() async {
+    UserCredential? res;
     try {
-      final res = await remoteDataSourceImp.signInWithGoogle();
+      res = await remoteDataSourceImp.signInWithGoogle();
+      var user = UserModel.fromFirebase(res);
+      await addUserToDataBase(user: user);
       return Right(UserModel.fromFirebase(res));
+      
     } catch (e) {
       if (e is FirebaseException) {
+         if (res != null) {
+        await deleteUser();
+      }
         log(e.toString());
         return Left(ServerFaluire.fromFirebaseException(e));
       } else {
+         if (res != null) {
+        await deleteUser();
+      }
         log(e.toString());
         return Left(
-            ServerFaluire('An undefined Error happened , try again later.'));
+            ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
       }
     }
   }
@@ -91,7 +101,7 @@ class AuthRepoImp extends AuthRepo {
       } else {
         log(e.toString());
         return Left(
-            ServerFaluire('An undefined Error happened , try again later.'));
+            ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
       }
     }
   }
@@ -99,7 +109,6 @@ class AuthRepoImp extends AuthRepo {
   @override
   Future<void> addUserToDataBase({required UserEntity user}) async {
     //throw Exception('Failed to delete use');
-
     await dataBaseUsers.addUser(path: 'users', data: user.toMap());
   }
 
