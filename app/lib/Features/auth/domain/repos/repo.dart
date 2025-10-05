@@ -16,4 +16,5 @@ abstract class AuthRepo {
   Future<void> addUserToDataBase({
     required UserEntity user,
   });
+  Future<void> deleteUser();
 }

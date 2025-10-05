@@ -6,7 +6,7 @@ import 'package:app/Features/auth/domain/entities/user_entity.dart';
 import 'package:app/Features/auth/domain/repos/repo.dart';
 import 'package:app/core/errors/faluire_class.dart';
 import 'package:dartz/dartz.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepoImp extends AuthRepo {
   RemoteDataSourceImp remoteDataSourceImp;
@@ -17,18 +17,25 @@ class AuthRepoImp extends AuthRepo {
       {required String email,
       required String password,
       required String name}) async {
+    UserCredential? res;
     try {
-      final res =
-          await remoteDataSourceImp.signUp(email: email, password: password);
+      res = await remoteDataSourceImp.signUp(email: email, password: password);
       var user = UserModel.fromFirebase(res);
       user.name = name;
-      addUserToDataBase(user: user);
+      await addUserToDataBase(user: user);
       return Right(user);
     } catch (e) {
+      if (res != null) {
+        await deleteUser();
+      }
       if (e is FirebaseException) {
         return Left(ServerFaluire.fromFirebaseException(e));
       } else {
+        if (res != null) {
+          await deleteUser();
+        }
         log(e.toString());
+
         return Left(
             ServerFaluire('An undefined Error happened , try again later.'));
       }
@@ -91,6 +98,13 @@ class AuthRepoImp extends AuthRepo {
 
   @override
   Future<void> addUserToDataBase({required UserEntity user}) async {
+    //throw Exception('Failed to delete use');
+
     await dataBaseUsers.addUser(path: 'users', data: user.toMap());
+  }
+
+  @override
+  Future<void> deleteUser() async {
+    await remoteDataSourceImp.deleteUser();
   }
 }

@@ -13,6 +13,7 @@ abstract class RemoteDataSource {
   });
   Future<UserCredential> signInWithGoogle();
   Future<UserCredential> signInWithFacebook();
+  Future<void> deleteUser();
 }
 
 class RemoteDataSourceImp implements RemoteDataSource {
@@ -27,7 +28,8 @@ class RemoteDataSourceImp implements RemoteDataSource {
     return await firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
   }
- @override
+
+  @override
   Future<UserCredential> signIn({
     required String email,
     required String password,
@@ -35,8 +37,8 @@ class RemoteDataSourceImp implements RemoteDataSource {
     return await firebaseAuth.signInWithEmailAndPassword(
         email: email, password: password);
   }
- @override
 
+  @override
   Future<UserCredential> signInWithGoogle() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
     final GoogleSignInAuthentication? googleAuth =
@@ -47,13 +49,19 @@ class RemoteDataSourceImp implements RemoteDataSource {
     );
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
- @override
 
+  @override
   Future<UserCredential> signInWithFacebook() async {
     final LoginResult loginResult = await FacebookAuth.instance.login();
     final OAuthCredential facebookAuthCredential =
         FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
-  
+
+  @override
+  Future<void> deleteUser() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+    await user.delete();
+  }
 }
