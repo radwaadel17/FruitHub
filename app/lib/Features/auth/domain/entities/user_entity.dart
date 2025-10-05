@@ -1,4 +1,4 @@
-abstract class UserEntity {
+class UserEntity {
   final String uid;
   final String email;
    String name;
@@ -16,4 +16,8 @@ abstract class UserEntity {
       'name': name,
     };
   }
+  UserEntity.fromjson(Map<String, dynamic> json)
+      : uid = json['uid'],
+        email = json['email'],
+        name = json['name'];
 }

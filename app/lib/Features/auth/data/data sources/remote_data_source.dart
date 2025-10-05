@@ -1,3 +1,5 @@
+import 'package:app/Features/auth/data/data%20sources/data_base_users.dart';
+import 'package:app/Features/auth/domain/entities/user_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -14,7 +16,9 @@ abstract class RemoteDataSource {
   Future<UserCredential> signInWithGoogle();
   Future<UserCredential> signInWithFacebook();
   Future<void> deleteUser();
-}
+  Future<UserEntity> getCurrentUser({required String uid , required String path});
+  
+  }
 
 class RemoteDataSourceImp implements RemoteDataSource {
   RemoteDataSourceImp(this.firebaseAuth);
@@ -63,5 +67,12 @@ class RemoteDataSourceImp implements RemoteDataSource {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
     await user.delete();
+  }
+  
+  @override
+  Future<UserEntity> getCurrentUser({required String uid, required String path})async {
+   DataBaseUsers dataBaseUsers = FireStoreDataBase() ;
+   UserEntity user = await dataBaseUsers.getData(uid: uid, path: path).then((value) => UserEntity.fromjson(value)) ;
+   return user;
   }
 }

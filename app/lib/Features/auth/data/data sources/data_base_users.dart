@@ -5,6 +5,7 @@ abstract class DataBaseUsers {
     required String path,
     required Map<String, dynamic> data,
   });
+   Future<Map<String , dynamic >>getData({required String uid , required String path});
 }
 
 class FireStoreDataBase implements DataBaseUsers {
@@ -15,4 +16,10 @@ class FireStoreDataBase implements DataBaseUsers {
       {required String path, required Map<String, dynamic> data}) async {
     await firestore.collection(path).add(data);
   }
+  
+  @override
+  Future<Map<String , dynamic>> getData({required String uid, required String path})async {
+    var res = await firestore.collection(path).doc(uid).get() ;
+    return res.data()! ;
+}
 }

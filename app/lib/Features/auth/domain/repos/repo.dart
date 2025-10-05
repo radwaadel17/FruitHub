@@ -17,4 +17,5 @@ abstract class AuthRepo {
     required UserEntity user,
   });
   Future<void> deleteUser();
+  Future<UserEntity> getCurrentUser({required String uid , required String path});
 }
