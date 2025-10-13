@@ -1,6 +1,7 @@
 import 'package:app/Features/auth/presentation/manager/cubits/sign%20up/sign_up_cubit.dart';
 import 'package:app/Features/auth/presentation/manager/cubits/sign%20up/sign_up_states.dart';
 import 'package:app/Features/auth/presentation/views/widgets/sign_up_view_body.dart';
+import 'package:app/Features/home/presentation/views/home_screen.dart';
 import 'package:app/core/functions/error_bar_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,9 @@ class BlocConsumerSignUp extends StatelessWidget {
         body: BlocConsumer<SignUpCubit, SignUpStates>(
           listener: (context, state) {
             if(state is SucsessSignUpState){
+             Navigator.pushNamed(context, HomeView.routeName);
+
+              buildSuccessBar(context, "تم التسجيل بنجاح");
               // Navigator.pushNamed(context, HomeView.routeName);
             } else if(state is FaluireSignUpState){
               buildErrorBar(context, state.msg);
