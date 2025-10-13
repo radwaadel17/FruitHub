@@ -24,6 +24,7 @@ class AuthRepoImp extends AuthRepo {
       var user = UserModel.fromFirebase(res);
       user.name = name;
       await addUserToDataBase(user: user);
+      await getCurrentUser(uid: user.uid, path: path);
       return Right(user);
     } catch (e) {
       if (res != null) {
@@ -37,8 +38,7 @@ class AuthRepoImp extends AuthRepo {
         }
         log(e.toString());
 
-        return Left(
-            ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
+        return Left(ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
       }
     }
   }
@@ -49,7 +49,9 @@ class AuthRepoImp extends AuthRepo {
     try {
       final res =
           await remoteDataSourceImp.signIn(email: email, password: password);
-      UserEntity userInfo = await remoteDataSourceImp.getCurrentUser(uid: res.user!.uid, path: path) ;
+      UserEntity userInfo = await remoteDataSourceImp.getCurrentUser(
+          uid: res.user!.uid, path: path);
+
       log(userInfo.name);
       log(userInfo.email);
       log(userInfo.uid);
@@ -60,8 +62,7 @@ class AuthRepoImp extends AuthRepo {
         return Left(ServerFaluire.fromFirebaseException(e));
       } else {
         log(e.toString());
-        return Left(
-            ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
+        return Left(ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
       }
     }
   }
@@ -71,24 +72,28 @@ class AuthRepoImp extends AuthRepo {
     UserCredential? res;
     try {
       res = await remoteDataSourceImp.signInWithGoogle();
+
       var user = UserModel.fromFirebase(res);
-      await addUserToDataBase(user: user);
+      bool userExists = await checkIfUserExists(user: user);
+      if (userExists == true) {
+        await getCurrentUser(uid: user.uid, path: path);
+      } else {
+        await addUserToDataBase(user: user);
+      }
       return Right(UserModel.fromFirebase(res));
-      
     } catch (e) {
       if (e is FirebaseException) {
-         if (res != null) {
-        await deleteUser();
-      }
+        if (res != null) {
+          await deleteUser();
+        }
         log(e.toString());
         return Left(ServerFaluire.fromFirebaseException(e));
       } else {
-         if (res != null) {
-        await deleteUser();
-      }
+        if (res != null) {
+          await deleteUser();
+        }
         log(e.toString());
-        return Left(
-            ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
+        return Left(ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
       }
     }
   }
@@ -105,25 +110,32 @@ class AuthRepoImp extends AuthRepo {
         return Left(ServerFaluire.fromFirebaseException(e));
       } else {
         log(e.toString());
-        return Left(
-            ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
+        return Left(ServerFaluire('حدث خطأ غير معروف , حاول مرة اخرى لاحقا'));
       }
     }
   }
 
   @override
   Future<void> addUserToDataBase({required UserEntity user}) async {
-    await dataBaseUsers.addUser(path: path, data: user.toMap());
+    await dataBaseUsers.addData(
+        path: path, data: user.toMap(), documentId: user.uid);
   }
 
   @override
   Future<void> deleteUser() async {
     await remoteDataSourceImp.deleteUser();
   }
-  
+
   @override
-  Future<UserEntity> getCurrentUser({required String uid , required String path})async {
-    var res = await dataBaseUsers.getData(uid: uid, path: path) ;
-    return UserEntity.fromjson(res) ;
+  Future<UserEntity> getCurrentUser(
+      {required String uid, required String path}) async {
+    var res = await dataBaseUsers.getData(uid: uid, path: path);
+    return UserEntity.fromjson(res);
+  }
+
+  @override
+  Future<bool> checkIfUserExists({required UserEntity user}) async {
+    bool res = await dataBaseUsers.checkIfDataExists(uid: user.uid, path: path);
+    return res;
   }
 }

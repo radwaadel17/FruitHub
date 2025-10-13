@@ -18,4 +18,5 @@ abstract class AuthRepo {
   });
   Future<void> deleteUser();
   Future<UserEntity> getCurrentUser({required String uid , required String path});
+  Future<bool> checkIfUserExists({required UserEntity user});
 }
