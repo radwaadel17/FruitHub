@@ -4,6 +4,7 @@ import 'package:app/Features/auth/presentation/views/widgets/forget_pass_txt.dar
 import 'package:app/Features/auth/presentation/views/widgets/login_method_container.dart';
 import 'package:app/Features/auth/presentation/views/widgets/or_txt.dart';
 import 'package:app/core/utils/appIamges.dart';
+import 'package:app/core/utils/shared_prefrences.dart';
 import 'package:app/core/widegets/custom_app_bar.dart';
 import 'package:app/core/widegets/custom_button.dart';
 import 'package:app/core/widegets/custom_text_field.dart';
@@ -64,6 +65,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   formKey.currentState!.save();
                   BlocProvider.of<SignInCubit>(context)
                       .signIn(email: email!, password: password!);
+                  SharedPrefs.setBool('isLogin', true);
                 } else {
                   //show errors
                   setState(() {
@@ -78,6 +80,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
              LogInMethodContainer(
               onPressed: (){
                 BlocProvider.of<SignInCubit>(context).signInWithGoogle();
+                SharedPrefs.setBool('isLogin', true);
+
               },
                 txt: 'تسجيل بواسطة جوجل', urlImage: Assets.imagesGoogle),
             const LogInMethodContainer(

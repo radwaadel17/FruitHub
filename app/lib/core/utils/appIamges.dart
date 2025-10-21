@@ -22,17 +22,24 @@ class Assets {
   /// assets/images/facebook.svg
   static const String imagesFacebook = "assets/images/facebook.svg";
 
+  /// Assets for imagesFeaturedPhotoTest
+  /// assets/images/Featured_photo_test.jpg
+  static const String imagesFeaturedPhotoTest = "assets/images/Featured_photo_test.jpg";
+
   /// Assets for imagesGoogle
   /// assets/images/google.svg
   static const String imagesGoogle = "assets/images/google.svg";
 
   /// Assets for imagesImageFx (8)Photoroom
   /// assets/images/Image_fx (8)-Photoroom.png
-  static const String imagesImageFx = "assets/images/Image_fx (8)-Photoroom.png";
 
   /// Assets for imagesLogo app
   /// assets/images/logo app.png
-  static const String imagesLogo  = "assets/images/logo app.png";
+  static const String imagesLogo = "assets/images/logo app.png";
+
+  /// Assets for imagesNotification frame
+  /// assets/images/notification frame.svg
+  static const String imagesNotification = "assets/images/notification frame.svg";
 
   /// Assets for imagesPhoto1
   /// assets/images/photo1.svg
@@ -45,6 +52,18 @@ class Assets {
   /// Assets for imagesPlant
   /// assets/images/plant.svg
   static const String imagesPlant = "assets/images/plant.svg";
+
+  /// Assets for imagesProfileImage
+  /// assets/images/profileImage.svg
+  static const String imagesProfileImage = "assets/images/profileImage.svg";
+
+  /// Assets for imagesSetting icon
+  /// assets/images/setting icon.svg
+  static const String imagesSetting  = "assets/images/setting icon.svg";
+
+  /// Assets for imagesShapeFeaturedItem
+  /// assets/images/shape_featured_item.svg
+  static const String imagesShapeFeaturedItem = "assets/images/shape_featured_item.svg";
 
   /// Assets for imagesSmall circles
   /// assets/images/small circles.svg

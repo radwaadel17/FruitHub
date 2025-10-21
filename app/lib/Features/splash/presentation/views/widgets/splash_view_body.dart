@@ -1,4 +1,5 @@
 import 'package:app/Features/auth/presentation/views/logn_in_view.dart';
+import 'package:app/Features/home/presentation/views/home_screen.dart';
 import 'package:app/Features/onboarding/presentation/views/on%20boarding%20screen.dart';
 import 'package:app/core/utils/appIamges.dart';
 import 'package:app/core/utils/shared_prefrences.dart';
@@ -15,12 +16,20 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   delayFunction() async {
     bool check = SharedPrefs.getBool("IsSeen");
+    bool isLogin = SharedPrefs.getBool("isLogin");
     if (check) {
+      if(isLogin){
+        await Future.delayed(const Duration(seconds: 3), () {
+          Navigator.pushNamed(context, HomeView.routeName);
+        });
+        return;
+      }
       await Future.delayed(const Duration(seconds: 3), () {
         Navigator.pushNamed(context, LogInView.routeName);
       });
       return;
     }
+
     await Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushNamed(context, OnBoardingView.routeName);
     });

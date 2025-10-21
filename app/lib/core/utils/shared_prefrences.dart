@@ -18,4 +18,5 @@ class SharedPrefs {
   static Future<bool> clear() async {
     return await instance.clear();
   }
+
 }

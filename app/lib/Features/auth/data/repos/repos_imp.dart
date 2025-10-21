@@ -4,12 +4,10 @@ import 'package:app/Features/auth/data/data%20sources/remote_data_source.dart';
 import 'package:app/Features/auth/data/models/user_model.dart';
 import 'package:app/Features/auth/domain/entities/user_entity.dart';
 import 'package:app/Features/auth/domain/repos/repo.dart';
-import 'package:app/Features/home/presentation/views/home_screen.dart';
 import 'package:app/core/errors/faluire_class.dart';
 import 'package:app/core/utils/constants.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 class AuthRepoImp extends AuthRepo {
   RemoteDataSourceImp remoteDataSourceImp;
