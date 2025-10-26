@@ -8,7 +8,9 @@ class BottomNavBarEntity {
       {required this.activeImg,
       required this.inactiveImg,
       required this.title});
-  List<BottomNavBarEntity> bottomNavBarItems = [
+ 
+}
+ List<BottomNavBarEntity> bottomNavBarItems = [
     BottomNavBarEntity(
         activeImg: Assets.imagesHome,
         inactiveImg: Assets.imagesHomeOutline,
@@ -26,4 +28,3 @@ class BottomNavBarEntity {
         inactiveImg: Assets.imagesUserOutline,
         title: "حسابي"),
   ];
-}

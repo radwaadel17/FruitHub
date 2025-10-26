@@ -1,8 +1,17 @@
+import 'package:app/Features/home/domain/entites/bottom_nav_bar_entity.dart';
+import 'package:app/Features/home/presentation/views/widgets/bottom_nav_bar_select.dart';
 import 'package:flutter/material.dart';
 
-class CustomNavigationBar extends StatelessWidget {
+class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
 
+  @override
+  State<CustomNavigationBar> createState() => _CustomNavigationBarState();
+}
+
+class _CustomNavigationBarState extends State<CustomNavigationBar> {
+  int  isSelected = 0 ; 
+   int flexCount = 1 ;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,24 +30,27 @@ class CustomNavigationBar extends StatelessWidget {
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(30), topRight: Radius.circular(30)),
       ),
-      
+      child: Row(
+        children: bottomNavBarItems.asMap().entries.map((entry) {
+          flexCount = isSelected == entry.key ? 2 : 1 ;
+          int idx = entry.key;
+          BottomNavBarEntity bottomNavBarEntity = entry.value;
+          return Expanded(
+            flex: flexCount,
+            child: GestureDetector(
+              onTap: (){
+                setState(() {
+                  isSelected = idx ;
+                });
+              },
+              child: BottomNavigationBarSelect(
+                isSelected: isSelected == idx,
+                bottomNavBarEntity: bottomNavBarEntity,
+              ),
+            ),
+          );
+        }).toList(),
+      ),
     );
-  }
-}
-class InActive extends StatelessWidget {
-  const InActive({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
-class Active extends StatelessWidget {
-  const Active({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
