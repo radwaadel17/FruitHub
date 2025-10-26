@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-  
+
   /// Assets for imagesAdd icon
   /// assets/images/add icon.svg
   static const String imagesAdd = "assets/images/add icon.svg";
@@ -22,13 +22,23 @@ class Assets {
   /// assets/images/bg2.svg
   static const String imagesBg2 = "assets/images/bg2.svg";
 
+  /// Assets for imagesElement3
+  /// assets/images/element-3.svg
+  static const String imagesElement3 = "assets/images/element-3.svg";
+
+  /// Assets for imagesElement3Outline
+  /// assets/images/element-3-outline.svg
+  static const String imagesElement3Outline =
+      "assets/images/element-3-outline.svg";
+
   /// Assets for imagesFacebook
   /// assets/images/facebook.svg
   static const String imagesFacebook = "assets/images/facebook.svg";
 
   /// Assets for imagesFeaturedPhotoTest
   /// assets/images/Featured_photo_test.jpg
-  static const String imagesFeaturedPhotoTest = "assets/images/Featured_photo_test.jpg";
+  static const String imagesFeaturedPhotoTest =
+      "assets/images/Featured_photo_test.jpg";
 
   /// Assets for imagesGoogle
   /// assets/images/google.svg
@@ -46,16 +56,25 @@ class Assets {
   /// assets/images/heart.svg
   static const String imagesHeart = "assets/images/heart.svg";
 
+  /// Assets for imagesHome
+  /// assets/images/home.svg
+  static const String imagesHome = "assets/images/home.svg";
+
+  /// Assets for imagesHomeOutline
+  /// assets/images/home-outline.svg
+  static const String imagesHomeOutline = "assets/images/home-outline.svg";
+
   /// Assets for imagesImageFx (8)Photoroom
   /// assets/images/Image_fx (8)-Photoroom.png
 
   /// Assets for imagesLogo app
   /// assets/images/logo app.png
-  static const String imagesLogo = "assets/images/logo app.png";
+  static const String imagesLogop = "assets/images/logo app.png";
 
   /// Assets for imagesNotification frame
   /// assets/images/notification frame.svg
-  static const String imagesNotification = "assets/images/notification frame.svg";
+  static const String imagesNotification =
+      "assets/images/notification frame.svg";
 
   /// Assets for imagesPhoto1
   /// assets/images/photo1.svg
@@ -79,14 +98,31 @@ class Assets {
 
   /// Assets for imagesShapeFeaturedItem
   /// assets/images/shape_featured_item.svg
-  static const String imagesShapeFeaturedItem = "assets/images/shape_featured_item.svg";
+  static const String imagesShapeFeaturedItem =
+      "assets/images/shape_featured_item.svg";
+
+  /// Assets for imagesShoppingCart
+  /// assets/images/shopping-cart.svg
+  static const String imagesShoppingCart = "assets/images/shopping-cart.svg";
+
+  /// Assets for imagesShoppingCartOutline
+  /// assets/images/shopping-cart-outline.svg
+  static const String imagesShoppingCartOutline =
+      "assets/images/shopping-cart-outline.svg";
 
   /// Assets for imagesSmall circles
   /// assets/images/small circles.svg
-  static const String imagesSmall= "assets/images/small circles.svg";
+  static const String imagesSmall = "assets/images/small circles.svg";
 
   /// Assets for imagesSplash logo
   /// assets/images/splash logo.svg
   static const String imagesSplash = "assets/images/splash logo.svg";
-}
 
+  /// Assets for imagesUser
+  /// assets/images/user.svg
+  static const String imagesUser = "assets/images/user.svg";
+
+  /// Assets for imagesUserOutline
+  /// assets/images/user_outline.svg
+  static const String imagesUserOutline = "assets/images/user_outline.svg";
+}
