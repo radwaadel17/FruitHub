@@ -9,9 +9,11 @@ class BestSellerGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Color(0xffF3F5F7),
-        image:  DecorationImage(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        // ignore: use_full_hex_values_for_flutter_colors
+        color: const Color(0xffbf3f5f7),
+        image: const DecorationImage(
           image: AssetImage(
             Assets.imagesGridItemS,
           ),
@@ -33,7 +35,9 @@ class BestSellerGridItem extends StatelessWidget {
                       'فراولة',
                       style: AppTextStyles.semiBold13,
                     ),
-                    const SizedBox(height: 12,),
+                    const SizedBox(
+                      height: 12,
+                    ),
                     Row(
                       children: [
                         Text(
