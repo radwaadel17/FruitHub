@@ -3,7 +3,8 @@ import 'package:app/Features/home/presentation/views/widgets/bottom_nav_bar_sele
 import 'package:flutter/material.dart';
 
 class CustomNavigationBar extends StatefulWidget {
-  const CustomNavigationBar({super.key});
+  const CustomNavigationBar({super.key, required this.updateBool});
+  final Function(int) updateBool ; 
 
   @override
   State<CustomNavigationBar> createState() => _CustomNavigationBarState();
@@ -11,7 +12,10 @@ class CustomNavigationBar extends StatefulWidget {
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
   int  isSelected = 0 ; 
-   int flexCount = 1 ;
+  int flexCount = 1 ;
+
+ 
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,16 +36,15 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
       ),
       child: Row(
         children: bottomNavBarItems.asMap().entries.map((entry) {
-          flexCount = isSelected == entry.key ? 2 : 1 ;
+          flexCount = isSelected == entry.key ? 3 : 2 ;
           int idx = entry.key;
           BottomNavBarEntity bottomNavBarEntity = entry.value;
           return Expanded(
             flex: flexCount,
             child: GestureDetector(
               onTap: (){
-                setState(() {
-                  isSelected = idx ;
-                });
+                widget.updateBool(idx) ;
+                isSelected = idx ; 
               },
               child: BottomNavigationBarSelect(
                 isSelected: isSelected == idx,
